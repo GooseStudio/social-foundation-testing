@@ -6,9 +6,7 @@ use ArtOfWP\WP\Testing\WP_UnitTestCase;
 use CLMVC\Controllers\Render\RenderedContent;
 use CLMVC\Core\Container;
 use CLMVC\Core\Http\Routes;
-use CLMVC\Events\Hook;
 use CLMVC\ViewEngines\WordPress\WpRendering;
-use helpers\MockPhpStream;
 
 class API_WP_TestCase extends WP_UnitTestCase
 {
