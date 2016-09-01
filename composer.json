@@ -1,0 +1,41 @@
+{
+    "name": "social-foundation/testing",
+    "description": "Helper classes for easier testing of Social Foundation plugin and modules.",
+    "type": "library",
+    "require": {
+        "artofwp/wp-testing": "dev-master"
+    },
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Andreas Nurbo",
+            "email": "andreas@goose.studio"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "SocialFoundation\\Testing\\": "src/",
+            "SocialFoundation\\Testing\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "5.6"
+        }
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/artofwp/cloudless"
+        }
+    ],
+    "require-dev": {
+        "artofwp/cloudless": "dev-master",
+        "phpunit/phpunit": "5.3.2",
+        "Mockery/Mockery": "0.9.4",
+        "php-mock/php-mock-mockery": "dev-master",
+        "mikey179/vfsStream": "^1.6",
+        "artofwp/wp-testing": "dev-master"
+    }
+}
