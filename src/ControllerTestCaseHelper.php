@@ -120,7 +120,7 @@ trait ControllerTestCaseHelper {
         RenderedContent::endIt(false);
         require_once 'MockPHPStream.php';
         stream_wrapper_unregister("php");
-        stream_wrapper_register("php", "\\helpers\\MockPhpStream");
+        stream_wrapper_register("php", MockPhpStream::class);
     }
 
     public function tearDown() {
