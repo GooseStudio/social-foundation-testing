@@ -124,11 +124,15 @@ trait ControllerTestCaseHelper {
     }
 
     public function tearDown() {
-        RenderedContent::clear();
-        RenderedContent::endIt(false);
-        stream_wrapper_restore("php");
-        $_GET=[];
-        $_POST=[];
-        unset($_SERVER['CONTENT_TYPE']);
+	    $this->reset();
     }
+
+	public function reset() {
+		RenderedContent::clear();
+		RenderedContent::endIt( false );
+		stream_wrapper_restore( "php" );
+		$_GET  = [];
+		$_POST = [];
+		unset( $_SERVER['CONTENT_TYPE'] );
+	}
 }

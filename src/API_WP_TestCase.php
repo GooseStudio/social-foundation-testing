@@ -90,6 +90,14 @@ class API_WP_TestCase extends WP_UnitTestCase
         file_put_contents('php://input', $data);
     }
 
+	public function reset() {
+		RenderedContent::clear();
+		RenderedContent::endIt(false);
+		stream_wrapper_restore("php");
+		$_GET=[];
+		$_POST=[];
+		unset($_SERVER['CONTENT_TYPE']);
+    }
     public function setUp() {
         parent::setUp();
         $renderer = Container::instance()->fetchOrMake(WpRendering::class);
@@ -97,16 +105,12 @@ class API_WP_TestCase extends WP_UnitTestCase
         RenderedContent::clear();
         RenderedContent::endIt(false);
         stream_wrapper_unregister("php");
-        stream_wrapper_register("php", MockPhpStream::class);
+	    require_once 'MockPHPStream.php';
+	    stream_wrapper_register("php", MockPhpStream::class);
     }
 
     public function tearDown() {
-        RenderedContent::clear();
-        RenderedContent::endIt(false);
-        stream_wrapper_restore("php");
-        $_GET=[];
-        $_POST=[];
-        unset($_SERVER['CONTENT_TYPE']);
+	    $this->reset();
         parent::tearDown();
     }
 }
